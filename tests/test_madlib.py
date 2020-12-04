@@ -17,3 +17,13 @@ def test_removing():
     actual = edit_file(content)
     expected =  'insert {}'
     assert actual == expected 
+
+
+
+
+def test_merge():
+    text = 'insert {}'
+    answer = ['name']
+    actual = merge(text,answer)
+    expected = 'insert name'
+    assert actual == expected

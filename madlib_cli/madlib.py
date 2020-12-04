@@ -1,9 +1,9 @@
 import re
 def open_file():
-   with open('assets/text_file.txt' , 'r+') as file:
-       content = file.read()
-       print (content)
-       return content
+    with open('assets/text_file.txt' , 'r+') as file:
+    
+        content = file.read()
+        return content
 
        
     
@@ -25,27 +25,33 @@ def handle_input():
     return answer
 
 def merge(text, answer):
-    formatting = text.format(answer[0], answer[1], answer[2],answer[3],answer[4],answer[5],answer[6],answer[7],answer[8],answer[9],answer[10],answer[11],answer[12],answer[13],answer[14],answer[15],answer[16],answer[17],answer[18],answer[19],answer[20])
+
+    formatting = text.format(*answer)
+
+    # formatting = text.format(answer[0], answer[1], answer[2],answer[3],answer[4],answer[5],answer[6],answer[7],answer[8],answer[9],answer[10],answer[11],answer[12],answer[13],answer[14],answer[15],answer[16],answer[17],answer[18],answer[19],answer[20])
 
     return formatting
-
-
-
-
-
-
-
     
 
 
-    
+def create_file(text):
+    with open('assets/result_file.txt' , 'w') as file:
+        file.write(text)
+
+
+
+        
+
+
           
 
 
 if __name__ == "__main__":
+    print ('welcome to madlib!')
     openFile = open_file()
     editFile = edit_file(openFile)
     handleInput = handle_input()
     merge = merge(editFile, handleInput)
     print(merge)
+    create_file(merge)
     
